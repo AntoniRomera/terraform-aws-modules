@@ -1,0 +1,15 @@
+# Copy to terraform.tfvars and edit. terraform.tfvars is gitignored.
+# All values below are non-secret placeholders.
+
+region      = "eu-west-1"
+name_prefix = "demo"
+
+cidr = "10.0.0.0/16"
+azs  = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+
+kubernetes_version = "1.29"
+
+db_name     = "appdb"
+db_username = "appadmin"
+# Leave db_password unset to auto-generate, or set it here (do NOT commit a real one):
+# db_password = "change-me-strong-password"

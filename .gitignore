@@ -1,0 +1,41 @@
+# Terraform working directories
+**/.terraform/
+.terraform.tfstate.lock.info
+
+# State files (never commit)
+*.tfstate
+*.tfstate.*
+
+# Variable files (may contain secrets) — keep *.tfvars.example tracked
+*.tfvars
+!*.tfvars.example
+
+# Plan output
+*.tfplan
+*.tfplan.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Override files (local-only customizations)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config / credentials
+.terraformrc
+terraform.rc
+
+# Environment files (never commit real credentials)
+.env
+.env.*
+!.env.example
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
