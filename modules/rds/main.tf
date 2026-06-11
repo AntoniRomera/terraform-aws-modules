@@ -29,6 +29,17 @@ resource "aws_db_subnet_group" "this" {
   tags = merge(local.common_tags, { Name = "${var.identifier}-subnet-group" })
 }
 
+resource "aws_db_parameter_group" "this" {
+  name_prefix = "${var.identifier}-"
+  family      = var.parameter_group_family
+
+  tags = merge(local.common_tags, { Name = "${var.identifier}-params" })
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 resource "aws_db_instance" "this" {
   identifier = var.identifier
 
@@ -47,6 +58,7 @@ resource "aws_db_instance" "this" {
   port     = var.port
 
   db_subnet_group_name   = aws_db_subnet_group.this.name
+  parameter_group_name   = aws_db_parameter_group.this.name
   vpc_security_group_ids = [aws_security_group.this.id]
 
   multi_az                  = var.multi_az
