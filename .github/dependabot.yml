@@ -4,11 +4,20 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+    groups:
+      terraform:
+        patterns: ["*"]
   - package-ecosystem: terraform
     directory: "/examples/full-stack"
     schedule:
       interval: weekly
+    groups:
+      terraform-examples:
+        patterns: ["*"]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
